@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>To Tank</title>
+        <link rel="stylesheet" href="/bags/common/tiddlers/normalize.css">
+        <link rel="stylesheet" href="/bags/totank_public/tiddlers/totank.css">
+        <!--[if lt IE 9]>
+        <script src="/bags/common/tiddlers/html5.js"></script>
+        <![endif]-->
+    </head>
+<body>
+<header>
+    <span class="wikititle">To Tank</span>
+</header>
+<main>
+<input type="checkbox" id="nav_more" role="button">
+<label class="commandbox" for="nav_more">
+    <i class="fa fa-align-justify">?</i>
+</label>
+<div class="commands">
+    <dl>
+        <dt>API Key</dt>
+        <dd>Your API key at Tank.</dd>
+        <dt>Target Tank</dt>
+        <dd>The tank where your content will be migrated.</dd>
+    </dl>
+</div>
+<div ng-cloak ng-app="app" ng-controller="migrater" class="output">
+    <form>
+        <p><label>API Key:
+            <input name="key" ng-model="key" placeholder="X-Tank-Key Here"></label></p>
+        <p>
+        <label>Tank for Public Bag:
+        <input name="public" ng-model="public">
+        </label>
+        <input type="checkbox" name="migrate-public"
+            ng-model="migratePublic">
+        migrate</label>
+        </p>
+        <p>
+        <label>Tank for Private Bag:
+        <input name="private" ng-model="private">
+        </label>
+        <label>
+        <input type="checkbox" name="migrate-private"
+            ng-model="migratePrivate">
+        migrate</label>
+        </p>
+        <p>
+        <label>
+        <input disabled type="checkbox" name="revisions" ng-model="revisions">
+            Include Revisions (feature not yet available)
+        </label></p>
+        <p><input ng-disabled="!isEnabled" type="submit"
+            value="Start" ng-click="migrateTiddlers()">
+        {{privateTiddlerCount}}, {{publicTiddlerCount}} =>
+        {{putPrivateTiddlerCount}}, {{putPublicTiddlerCount}}
+        </p>
+    </form>
+
+</div>
+</main>
+<footer>
+    <span class="logo"><a href="http://peermore.com/"><img src="/bags/totank_public/tiddlers/peermore2.png" alt="peermore"></a></span>
+    <ul>
+        <li><a href="https://tank.peermore.com/">Tank</a></li>
+    </ul>
+</footer>
+<script src="/status.js"></script>
+<script src="/bags/common/tiddlers/jquery.js"></script>
+<script src="/bags/totank_public/tiddlers/angular.js"></script>
+<script src="/bags/totank_public/tiddlers/totank.js"></script>
+</body>
+</html>

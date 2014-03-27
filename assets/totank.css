@@ -1,0 +1,296 @@
+/* Because this makes sense. */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hero {
+    background: white;
+    padding: 1em 2em 1em 2em;
+    border-radius: .5em;
+    font-size: 125%;
+    position: relative;
+}
+
+.fished {
+    background-image: url("/bags/totank_public/tiddlers/fish.png");
+    background-position: top -64px right -64px;
+    background-repeat: no-repeat;
+}
+
+
+.logout input {
+    display: none;
+}
+
+.logout:hover {
+    cursor: pointer;
+}
+
+.warning {
+    font-weight: bold;
+    color: red;
+}
+
+.editor button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: #efefef;
+    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+main, header, footer {
+    padding: 1em;
+}
+
+main {
+    position: relative;
+    color: #222222;
+    padding-top: 0;
+}
+
+main pre {
+    background-color: #fbfbfb;
+    padding: .5em;
+	overflow-x: scroll;
+	white-space: pre;
+}
+
+header {
+    color: #efefef;
+    background-color: #222222;
+    min-height: 50px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1em;
+}
+
+footer {
+    font-size: .75em;
+    color: #efefef;
+    background-color: #222222;
+    min-height: 54px;
+    width: 100%;
+    clear: both;
+    bottom: 0;
+    position: relative;
+}
+
+footer .logo {
+    float: right;
+    padding-right: 1em;
+}
+
+footer img {
+    position: absolute;
+    width: 54px;
+    top: 0;
+    right: 0;
+}
+
+footer ul,
+footer li {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+footer li {
+    display: inline;
+}
+
+footer .subfooter {
+    font-size: .75em;
+}
+
+footer a {
+    font-size: 125%;
+    color: #efefef;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+.wikititle {
+    font-size: 150%;
+    padding-right: 1em;
+    color: #efefef;
+    text-decoration: none;
+}
+
+.policyicon {
+    position: absolute;
+    top: .75em;
+    left: .5em;
+}
+
+.title {
+    display: inline-block;
+    max-width: 24em;
+    width: 100%;
+    padding-left: 1.5em;
+    margin-top: -.25em;
+}
+
+.title a,
+.title span {
+    text-decoration: none;
+    color: #efefef;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tanktitle {
+    font-size: 65%;
+}
+
+.pagetitle {
+    font-size: 85%;
+    padding-left: 1em;
+}
+
+.right {
+    float: right;
+}
+
+.output {
+    max-width: 35em;
+}
+
+
+.output img {
+    max-width: 100%;
+}
+
+
+.commands {
+    max-width: 20em;
+    float: right;
+}
+
+.commands div,
+.commands form {
+    margin-bottom: 1em;
+}
+
+.message {
+    font-size: 125%;
+    color: red;
+    padding-bottom: 1em;
+}
+
+.sm-gravatar {
+    width: 2em;
+    margin-right: 1em;
+    display: inline;
+    vertical-align: middle;
+}
+
+.socketicon {
+    position: relative;
+}
+
+.socketicon:hover {
+    cursor: pointer;
+}
+
+.socketinfo {
+    position: absolute;
+    display: none;
+    font-size: small;
+    z-index: 99;
+    width: 10em;
+    margin: 0;
+    padding: .5em;
+    list-style: none;
+    background: #efefef;
+    border: thin solid black;
+}
+
+.socketinfo dl {
+    margin: 0;
+}
+
+.socketsearch {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.socketinfo a {
+    text-decoration: none;
+}
+
+.socketinfo a:hover {
+    text-decoration: underline;
+}
+
+.socketinfo dd {
+    color: #222222;
+    margin-left: .5em;
+}
+
+.socketinfo span.modified {
+    display: block;
+}
+
+.commandbox {
+    display: none;
+}
+
+#nav_more {
+    position: absolute;
+    left: -999px;
+}
+
+i[title]:hover {
+    cursor: pointer;
+}
+
+form[name=search] .globalizer {
+    display: none;
+}
+
+header > i {
+    cursor: default !important; /* why? */
+}
+
+@media screen and (max-width: 62em) {
+    body {
+        width: 100%;
+    }
+
+    .commandbox {
+        display: inline;
+        cursor: pointer;
+    }
+
+    .commands {
+        position: absolute;
+        float: none;
+        left: -21em;
+        background: lightblue;
+        z-index: 99;
+        padding: 1em;
+    }
+
+    input[type=checkbox]:checked ~ .commands {
+        left: 1em;
+    }
+
+    .wikititle {
+        padding-right: .5em;
+    }
+}
