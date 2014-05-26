@@ -34,6 +34,9 @@ app.service('tankTiddlers', function($http) {
 	this.put = function(tankName, tankKey, tiddler) {
 		var uri = tankServer + '/bags/' + encodeURIComponent(tankName)
 			+ '/tiddlers/' + encodeURIComponent(tiddler.title);
+		if (!tiddler.type || tiddler.type == 'None') {
+			tiddler.type = 'text/x-tiddlywiki';
+		}
 		return $http.put(uri, tiddler, {
 			headers: {
 				'Content-Type': 'application/json',
