@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>To Tank</title>
+        <link rel="stylesheet" href="/bags/totank_public/tiddlers/font-awesome.css">
         <link rel="stylesheet" href="/bags/common/tiddlers/normalize.css">
         <link rel="stylesheet" href="/bags/totank_public/tiddlers/totank.css">
         <!--[if lt IE 9]>
@@ -57,6 +58,8 @@
             value="Start" ng-click="migrateTiddlers()">
         {{privateTiddlerCount}}, {{publicTiddlerCount}} =>
         {{putPrivateTiddlerCount}}, {{putPublicTiddlerCount}}
+		<i ng-show="publicStarted || privateStarted"
+                    class="fa fa-cog fa-spin"></i>
         </p>
     </form>
 

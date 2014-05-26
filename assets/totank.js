@@ -51,6 +51,8 @@ app.controller('migrater', function($scope, spaceInfo, spaceTiddlers,
 	var info = spaceInfo.get();
 
 	$scope.isEnabled = false;
+	$scope.publicStarted = false;
+	$scope.privateStarted = false;
 	$scope.privateTiddlerCount = 0;
 	$scope.publicTiddlerCount = 0;
 	$scope.putPublicTiddlerCount = 0;
@@ -62,6 +64,7 @@ app.controller('migrater', function($scope, spaceInfo, spaceTiddlers,
 
 	$scope.migrateTiddlers = function() {
 		if ($scope.migratePublic) {
+			$scope.publicStarted = true;
 			$scope.publicTiddlers.forEach(function(tiddler) {
 				spaceTiddlers.get(tiddler).success(
 					function(data) {
@@ -69,23 +72,33 @@ app.controller('migrater', function($scope, spaceInfo, spaceTiddlers,
 						tankTiddlers.put($scope.public, $scope.key, data)
 							.success(function() {
 								$scope.putPublicTiddlerCount++;
+								if ($scope.putPublicTiddlerCount >=
+									$scope.publicTiddlerCount) {
+										$scope.publicStarted = false;
+								}
 							});
 					}
 				);
 			});
 		}
 		if ($scope.migratePrivate) {
+			$scope.privateStarted = true;
 			$scope.privateTiddlers.forEach(function(tiddler) {
 				spaceTiddlers.get(tiddler).success(
 					function(data) {
 						tankTiddlers.put($scope.private, $scope.key, data)
 							.success(function() {
 								$scope.putPrivateTiddlerCount++;
+								if ($scope.putPrivateTiddlerCount >=
+									$scope.privateTiddlerCount) {
+										$scope.privateStarted = false;
+								}
 							});
 					}
 				);
 			});
 		}
+		$scope.$apply();
 	};
 
 	spaceTiddlers.getTiddlers(info.name).then(function(promises) {
